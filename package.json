@@ -26,5 +26,8 @@
     "once": "~1.3.0",
     "fills": "0.0.1",
     "waits": "~0.1.0"
+  },
+  "dependencies": {
+    "sliced": "0.0.5"
   }
 }
