@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var ResponseStream = require('./lib/response-stream');
 var response = require('./lib/response-wrappers');
@@ -13,6 +13,6 @@ function intercept(res) {
   res.end = response.end(res.end, res, stream);
 
   return stream;
-};
+}
 
 module.exports = intercept;

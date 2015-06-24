@@ -4,7 +4,9 @@
   "description": "Intercepts HTTP response headers && body (without any man-in-the-middle http proxy server)",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec test/unit && node test/functional/test.js"
+    "test": "mocha --reporter spec test/unit && node test/functional/test.js",
+    "lint": "eslint index.js example.js lib/*.js",
+    "precommit": "npm run lint && npm test"
   },
   "keywords": [
     "cache",
@@ -19,12 +21,14 @@
   "author": "Alexandru Vladutu <alexandru.vladutu@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "~1.17.0",
-    "should": "~3.0.1",
+    "eslint": "^0.23.0",
     "express": "~3.4.8",
-    "request": "~2.33.0",
-    "once": "~1.3.0",
     "fills": "0.0.1",
+    "husky": "^0.8.1",
+    "mocha": "~1.17.0",
+    "once": "~1.3.0",
+    "request": "~2.33.0",
+    "should": "~3.0.1",
     "waits": "~0.1.0"
   },
   "dependencies": {

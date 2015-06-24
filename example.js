@@ -1,3 +1,6 @@
+/*eslint-disable no-console, func-names*/
+'use strict';
+
 var http = require('http');
 var intercept = require('./');
 
