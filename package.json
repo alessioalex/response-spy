@@ -32,6 +32,7 @@
     "waits": "~0.1.0"
   },
   "dependencies": {
+    "is-stream-ended": "^0.1.0",
     "sliced": "0.0.5"
   }
 }

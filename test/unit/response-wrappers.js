@@ -101,6 +101,7 @@ describe('response-wrappers', function() {
   describe('#write', function() {
     it('should call writeHead (once) if headers are not sent', function() {
       var stream = [];
+      stream.ended = false;
       var code;
       var ctx = {
         writeHead: function(c) {
@@ -120,6 +121,7 @@ describe('response-wrappers', function() {
 
     it('should push data to stream', function() {
       var stream = [];
+      stream.ended = false;
       var code;
       var ctx = {
         headersSent: true
@@ -127,6 +129,7 @@ describe('response-wrappers', function() {
       var write = response.write(noop, ctx, stream);
       write('data');
       write('data2');
+      delete stream.ended;
       stream.should.eql(['data', 'data2']);
     });
   });
@@ -134,6 +137,7 @@ describe('response-wrappers', function() {
   describe('#end', function() {
     it('should call writeHead if headers are not sent', function() {
       var stream = [];
+      stream.ended = false;
       var code;
       var ctx = {
         writeHead: function(c) {
@@ -152,17 +156,21 @@ describe('response-wrappers', function() {
 
     it('should push null to stream if no arguments', function() {
       var stream = [];
+      stream.ended = false;
       var ctx = { headersSent: true };
       var end = response.end(noop, ctx, stream);
       end();
+      delete stream.ended;
       stream.should.eql([null]);
     });
 
     it('should push data argument and null to stream', function() {
       var stream = [];
+      stream.ended = false;
       var ctx = { headersSent: true };
       var end = response.end(noop, ctx, stream);
       end('data');
+      delete stream.ended;
       stream.should.eql(['data', null]);
     });
   });
