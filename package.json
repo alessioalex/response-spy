@@ -1,6 +1,6 @@
 {
   "name": "response-spy",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Intercepts HTTP response headers && body (without any man-in-the-middle http proxy server)",
   "main": "index.js",
   "scripts": {
